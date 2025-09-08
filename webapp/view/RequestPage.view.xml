@@ -1,0 +1,104 @@
+<mvc:View controllerName="newproject.controller.RequestPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+	xmlns:mdc="sap.ui.mdc"
+    height="100%"
+	xmlns:mdct="sap.ui.mdc.table"
+    core:require="{DateType: 'sap/ui/model/type/Date'}">
+    <Page id="page" title="{i18n>title}">
+    <Toolbar >
+      <Text text="Header" textAlign="Center" ></Text>
+      </Toolbar>
+      <layout:Grid>
+      
+
+        <VBox>
+            <HBox>
+                <Label text="Invoice Number" showColon="true" class="sapUiTinyMarginTop "/>
+                <Input id="invoice"/>
+            </HBox>
+        </VBox>
+
+         <VBox>
+            <HBox>
+                <Label text="Sales Order Number" showColon="true" class="sapUiTinyMarginTop "/>
+                <Input id="salesorder"/>
+            </HBox>
+        </VBox>
+
+        <VBox>
+            <HBox>
+                <Label text="Date of Container Receipt" showColon="true" class="sapUiTinyMarginTop "/>
+                <DatePicker value="{
+				path: '/date',
+				type: 'DateType'}" id="receipt_date"/>
+            </HBox>
+        </VBox>
+
+        <VBox>
+            <HBox>
+                <Label text="Unpacking Date" showColon="true" class="sapUiTinyMarginTop "/>
+                	<DatePicker value="{
+				path: '/date',
+				type: 'DateType'}" id="unpacking"/>
+            </HBox>
+        </VBox>
+
+        <VBox>
+            <HBox>
+                <Label text="Assembler Name" showColon="true" class="sapUiTinyMarginTop "/>
+                <Select width="180px"> <core:Item/> </Select>
+                <!-- <Input id="Assembler"/> -->
+            </HBox>
+        </VBox>
+
+        <VBox>
+            <HBox>
+                <Label text="Country" showColon="true" class="sapUiTinyMarginTop "/>
+                <Input id="Country"></Input>
+            </HBox>
+        </VBox>
+
+        <VBox>
+            <HBox>
+                <Label text="Department " showColon="true" class="sapUiTinyMarginTop "/>
+                <Input id="Department"></Input>
+            </HBox>
+        </VBox>
+ </layout:Grid>
+
+<Toolbar >
+      <Text text="Item" textAlign="Center" ></Text>
+      </Toolbar>
+
+ <Table id="itemsTable">
+                <columns>
+                    <Column><Text text="Qpr Number" /></Column>
+                    <Column><Text text="Model Name" /></Column>
+                    <Column><Text text="first_ascent" /></Column>
+                    <Column><Text text="Plant" /></Column>
+                    <Column ><Text text="Description" /></Column>
+                    <Column><Text text="Commidity" /></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Input value="{products>Qpr Number}"/>
+                            <Select width="200px"> <core:Item/> </Select>
+                            <Input value="{products>Model Name}"/>
+                            <Input value="{products>first_ascent}"/>                            
+                            <Select width="200px"> <core:Item/> </Select>
+                            <Input value="{products>Plant}"/>
+                            <Input value="{products>Description}"/>
+                            <Input value="{products>Commidity}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+    </Page>
+</mvc:View>
